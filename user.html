@@ -7,14 +7,10 @@
   <meta name="renderer" content="webkit"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="description" content="免费机场支持白嫖，如需有更高品质要求欢迎付费"/>
-  <link rel="icon" href="https://www.mangguo2024.top/favicon.svg"/>
-
-  <link rel="stylesheet" href="https://www.mangguo2024.top/static/phosphor-icons/duotone/style.css" onerror="this.href='./static/phosphor-icons/duotone/style.css'"/>
-  <link rel="stylesheet" href="https://www.mangguo2024.top/static/phosphor-icons/regular/style.css" onerror="this.href='./static/phosphor-icons/regular/style.css'"/>
-  <link rel="stylesheet" href="https://www.mangguo2024.top/static/custom.css?v=20231102012645" onerror="this.href='./static/custom.css?v=20231102012645'"/>
-  <link href="https://www.mangguo2024.top/static/css/n.960f0d5f.css" rel="stylesheet" onerror="this.href='./static/css/n.960f0d5f.css'">
-  <link href="https://www.mangguo2024.top/static/css/app.9a999ca1.css" rel="stylesheet" onerror="this.href='./static/css/app.9a999ca1.css'">
-
+  <link rel="icon" href="./favicon.svg"/>
+  <link rel="stylesheet" href="./static/phosphor-icons/duotone/style.css"/>
+  <link rel="stylesheet" href="./static/phosphor-icons/regular/style.css"/>
+  <link rel="stylesheet" href="./static/custom.css?v=20231102012645"/>
   <style>
     html, body {
       height: 100%;
@@ -81,6 +77,8 @@
       100% { left: 100%; }
     }
   </style>
+  <link href="./static/css/n.960f0d5f.css" rel="stylesheet">
+  <link href="./static/css/app.9a999ca1.css" rel="stylesheet">
 </head>
 <body>
 <noscript>
@@ -94,16 +92,60 @@
 </svg>
 <div class="loading-user">Loading...</div>
 <div id="app"></div>
-
 <script>
-  window.langs = {};  // 此处定义langs变量
+  window.EnvConfig = {
+    serverUrl: 'https://mgy.xiyunchen.cn',
+    landPage: 'login',
+    showRegInvite: 'show',
+    appTheme: 'auto',
+    appColor: 'default',
+    appName: '芒果加速',
+    appDesc: `芒果加速🥭`,
+    appVersion: '2.0',
+    clientIOS: 'https://apps.apple.com/us/app/shadowrocket/id932747118?l=zh-Hans-CN',
+    clientAndroid: 'https://wwv.lanzouh.com/i9xSj1usvbuh',
+    clientWindows: 'https://wwv.lanzouh.com/i8wwH1ufvpve',
+    clientMacOS: 'https://wwv.lanzouh.com/iDF4U1viswkb',
+    clientOpenwrt: 'https://firmware-selector.openwrt.org/',
+    clientLinux: 'https://github.com/Turing2333/Detailed-tutorial-on-the-building-and-usage-of-SSR/blob/master/Instructions/Clients%20manual%20for%20each%20platform/Linux%20SSR%E7%9B%B8%E5%85%B3%E8%AF%B4%E6%98%8E.txt',
+    staticUrl: '/static',
+  }
 </script>
-<script src="https://www.mangguo2024.top/static/i18n/zh-CN.js?v=20231102012645" onerror="this.src='./static/i18n/zh-CN.js?v=20231102012645'"></script>
-<script src="https://www.mangguo2024.top/static/i18n/zh-TW.js?v=20231102012645" onerror="this.src='./static/i18n/zh-TW.js?v=20231102012645'"></script>
-<script src="https://www.mangguo2024.top/static/i18n/en-US.js?v=20231102012645" onerror="this.src='./static/i18n/en-US.js?v=20231102012645'"></script>
+<script>
+  window.langs = {}
+  function isDarkMode() {
+    var themeMedia = window.matchMedia('(prefers-color-scheme: dark)');
+    var isDark = false;
+    var localMode = JSON.parse(localStorage.getItem('__AURORA__Darkmode') || '{}').value;
+    if (localMode !== undefined) {
+      isDark = localMode === 'dark';
+    } else if (EnvConfig.appTheme === 'dark') {
+      isDark = true;
+    } else if (EnvConfig.appTheme === 'auto') {
+      isDark = themeMedia.matches;
+    }
+    return isDark;
+  }
+  if (isDarkMode()) {
+    document.body.classList.add('is-darkmode');
+  }
+  document.body.classList.add(EnvConfig.appColor);
+</script>
+<!-- Add CDN fallback logic -->
+<script src="https://www.mangguo2024.top/library.js" onerror="fallbackToLocal()"></script>
+<script>
+  function fallbackToLocal() {
+    var script = document.createElement('script');
+    script.src = './static/js/library.js'; // Specify the local path of the fallback JS file
+    document.body.appendChild(script);
+  }
+</script>
 <script src="./expose.js?v=20231102012645"></script>
+<script src="./static/i18n/zh-CN.js?v=20231102012645"></script>
+<script src="./static/i18n/zh-TW.js?v=20231102012645"></script>
+<script src="./static/i18n/en-US.js?v=20231102012645"></script>
 <script src="./static/custom.js?v=20231102012645"></script>
-<script type="text/javascript" src="https://www.mangguo2024.top/static/js/n.c1cc6f8e.js" onerror="this.src='./static/js/n.c1cc6f8e.js'"></script>
-<script type="text/javascript" src="https://www.mangguo2024.top/static/js/app.9a3749eb.js" onerror="this.src='./static/js/app.9a3749eb.js'"></script>
+<script type="text/javascript" src="./static/js/n.c1cc6f8e.js"></script>
+<script type="text/javascript" src="./static/js/app.9a3749eb.js"></script>
 </body>
 </html>
